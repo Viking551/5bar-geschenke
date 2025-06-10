@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5bar Geschenke - Coming Soon</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            min-height: 100vh;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a4d68 0%, #1e7a96 50%, #2d9cdb 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+            position: relative;
+            /* Fisch-Cursor als Data-URL (Hotspot auf Maul, z.B. 64 32) */
+            cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaAAAABgCAYAAACK5LmiAAABgUlEQVR4nO3dQQ2DMBAEwXjJ/mfRk1lKpQO72iG8QG9g8oTd7MdvbwAAAAAAAAAAAAAAAMBvU4Yk3LAzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwzjWwAAAAD//wMAUEk2iJRp2iUAAAAASUVORK5CYII=') 64 32, auto;
+        }
+        .bubbles {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: rise 15s infinite linear;
+        }
+        .bubble:nth-child(1) { left: 10%; width: 40px; height: 40px; animation-delay: 0s; }
+        .bubble:nth-child(2) { left: 20%; width: 20px; height: 20px; animation-delay: 2s; }
+        .bubble:nth-child(3) { left: 35%; width: 60px; height: 60px; animation-delay: 4s; }
+        .bubble:nth-child(4) { left: 50%; width: 30px; height: 30px; animation-delay: 6s; }
+        .bubble:nth-child(5) { left: 70%; width: 50px; height: 50px; animation-delay: 8s; }
+        .bubble:nth-child(6) { left: 85%; width: 25px; height: 25px; animation-delay: 10s; }
+        @keyframes rise {
+            to {
+                bottom: 100vh;
+                transform: translateX(-100px);
+            }
+        }
+        .container {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        .logo {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        .coming-soon {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .description {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        .newsletter-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 2rem;
+        }
+        .newsletter-form h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .email-input {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .email-input input {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .email-input button {
+            padding: 12px 30px;
+            background: #ff6b35;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .email-input button:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .social-links {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 80px;
+        }
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+        .countdown-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        @media (max-width: 768px) {
+            .logo { font-size: 2.5rem; }
+            .coming-soon { font-size: 2rem; }
+            .tagline { font-size: 1.2rem; }
+            .description { font-size: 1rem; }
+            .email-input { flex-direction: column; align-items: center; }
+            .email-input input { min-width: 200px; }
+            .countdown { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    <div class="container">
+        <div class="logo">5bar</div>
+        <div class="tagline">GESCHENKE</div>
+        <div class="coming-soon">COMING SOON</div>
+        <div class="description">
+            Tauche ein in die Welt der perfekten Geschenke! Unsere neue Geschenke-Kollektion 
+            bringt einzigartige Überraschungen für alle Taucher und Wassersport-Liebhaber.
+        </div>
+        <div class="countdown">
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">30</span>
+                <span class="countdown-label">Tage</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">12</span>
+                <span class="countdown-label">Stunden</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">45</span>
+                <span class="countdown-label">Minuten</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">30</span>
+                <span class="countdown-label">Sekunden</span>
+            </div>
+        </div>
+        <div class="newsletter-form">
+            <h3>Benachrichtigung erhalten</h3>
+            <p>Sei der Erste, der von unseren neuen Geschenk-Kollektionen erfährt!</p>
+            <div class="email-input">
+                <input type="email" placeholder="Deine E-Mail-Adresse" required>
+                <button type="submit">Anmelden</button>
+            </div>
+        </div>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🎁</div>
+                <h4>Einzigartige Geschenke</h4>
+                <p>Speziell kuratierte Artikel für Taucher und Wassersport-Fans</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🌊</div>
+                <h4>Wasserdicht</h4>
+                <p>Hochwertige, wasserfeste Geschenkideen für jedes Abenteuer</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🚚</div>
+                <h4>Schneller Versand</h4>
+                <p>Weltweite Lieferung direkt zu dir nach Hause</p>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="#" title="Facebook">📘</a>
+            <a href="#" title="Instagram">📷</a>
+            <a href="#" title="Newsletter">📧</a>
+        </div>
+    </div>
+    <script>
+        // Simple countdown timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const launchDate = new Date('2025-07-01').getTime();
+            const distance = launchDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+            if (distance < 0) {
+                document.querySelector('.coming-soon').textContent = 'JETZT VERFÜGBAR!';
+                document.querySelector('.countdown').style.display = 'none';
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        // Newsletter form handling
+        document.querySelector('.email-input button').addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = document.querySelector('.email-input input').value;
+            if (email) {
+                alert('Danke! Du wirst benachrichtigt, sobald unsere Geschenke-Kollektion verfügbar ist.');
+                document.querySelector('.email-input input').value = '';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -296,6 +296,27 @@
             transition: none;
         }
     }
+
+    #floating-fish {
+        position: absolute;
+        width: 100px; /* Passe die Größe nach Bedarf an */
+        animation: swim 10s linear infinite;
+        z-index: 2; /* Stelle sicher, dass es über anderen Elementen liegt */
+    }
+
+    @keyframes swim {
+        0% {
+            left: -100px;
+            top: calc(50% + 20px); /* Startposition außerhalb des linken Bildschirms */
+        }
+        50% {
+            top: calc(50% - 20px); /* Mittlere Position mit leichter vertikaler Bewegung */
+        }
+        100% {
+            left: 100vw;
+            top: calc(50% + 20px); /* Endposition außerhalb des rechten Bildschirms */
+        }
+    }
     </style>
 </head>
 <body>
@@ -307,6 +328,9 @@
         <div class="bubble"></div>
         <div class="bubble"></div>
     </div>
+
+    <img id="floating-fish" src="fish.gif" alt="Schwimmender Fisch">
+
     <div class="container">
         <div class="logo">5bar</div>
         <div class="tagline"></div>

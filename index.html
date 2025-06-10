@@ -22,8 +22,8 @@ html_content = '''<!DOCTYPE html>
     color: white;
     overflow: hidden;
     position: relative;
-    /* Hecht-Cursor */
-    cursor: url('hecht.png') 32 16, auto;
+    /* Hecht-Cursor - verschiedene Pfade probieren */
+    cursor: url('./hecht.png') 32 16, url('/hecht.png') 32 16, url('hecht.png') 32 16, auto;
     }
     .bubbles {
     position: absolute;
@@ -150,11 +150,11 @@ html_content = '''<!DOCTYPE html>
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px;
+    height: 80px;
     }
     .feature-icon img {
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
     }
     .social-links {
@@ -204,6 +204,13 @@ html_content = '''<!DOCTYPE html>
     .email-input { flex-direction: column; align-items: center; }
     .email-input input { min-width: 200px; }
     .countdown { gap: 1rem; }
+    .feature-icon img {
+    width: 60px;
+    height: 60px;
+    }
+    .feature-icon {
+    height: 70px;
+    }
     }
     </style>
 </head>
@@ -310,4 +317,8 @@ html_content = '''<!DOCTYPE html>
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("index.html wurde aktualisiert!")
+print("index.html wurde nochmals aktualisiert!")
+print("Änderungen:")
+print("- Hecht-Icon ist jetzt 80x80px (doppelt so groß)")
+print("- Cursor probiert mehrere Pfadvarianten für hecht.png")
+print("- Mobile Ansicht angepasst (60x60px)")

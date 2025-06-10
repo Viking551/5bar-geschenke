@@ -87,50 +87,6 @@
     line-height: 1.6;
     opacity: 0.9;
     }
-    .newsletter-form {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    margin-bottom: 2rem;
-    }
-    .newsletter-form h3 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    }
-    .email-input {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    }
-    .email-input input {
-    flex: 1;
-    min-width: 250px;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 25px;
-    font-size: 1rem;
-    outline: none;
-    background: rgba(255, 255, 255, 0.9);
-    }
-    .email-input button {
-    padding: 12px 30px;
-    background: #ff6b35;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    }
-    .email-input button:hover {
-    background: #e55a2b;
-    transform: translateY(-2px);
-    }
     .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -201,8 +157,6 @@
     .coming-soon { font-size: 2rem; }
     .tagline { font-size: 1.2rem; }
     .description { font-size: 1rem; }
-    .email-input { flex-direction: column; align-items: center; }
-    .email-input input { min-width: 200px; }
     .countdown { gap: 1rem; }
     .feature-icon img {
     width: 60px;
@@ -249,14 +203,6 @@
     <span class="countdown-label">Sekunden</span>
     </div>
     </div>
-    <div class="newsletter-form">
-    <h3>Benachrichtigung erhalten</h3>
-    <p>Sei der Erste, der von unseren neuen Geschenk-Kollektionen erfährt!</p>
-    <div class="email-input">
-    <input type="email" placeholder="Deine E-Mail-Adresse" required>
-    <button type="submit">Anmelden</button>
-    </div>
-    </div>
     <div class="features">
     <div class="feature">
     <div class="feature-icon"><img src="hecht.png" alt="Hecht Icon" /></div>
@@ -301,15 +247,6 @@
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();
-    // Newsletter form handling
-    document.querySelector('.email-input button').addEventListener('click', function(e) {
-    e.preventDefault();
-    const email = document.querySelector('.email-input input').value;
-    if (email) {
-    alert('Danke! Du wirst benachrichtigt, sobald unsere Geschenke-Kollektion verfügbar ist.');
-    document.querySelector('.email-input input').value = '';
-    }
-    });
     </script>
 </body>
 </html>

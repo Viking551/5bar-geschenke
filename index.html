@@ -2,42 +2,49 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>5bar Geschenke - Coming Soon</title>
     <style>
     html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        min-height: 100vh;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
     }
     body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #0a4d68 0%, #1e7a96 50%, #2d9cdb 100%);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    overflow: hidden;
-    position: relative;
-    /* Hecht-Cursor - verschiedene Pfade probieren */
-    cursor: url('./hecht.png') 32 16, url('/hecht.png') 32 16, url('hecht.png') 32 16, auto;
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #0a4d68 0%, #1e7a96 50%, #2d9cdb 100%);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        overflow-x: hidden;
+        position: relative;
+        cursor: url('./hecht.png') 32 16, url('/hecht.png') 32 16, url('hecht.png') 32 16, auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
     .bubbles {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    overflow: hidden;
-    z-index: 1;
+        position: absolute;
+        top: 0; 
+        left: 0;
+        width: 100vw; 
+        height: 100vh;
+        overflow: hidden;
+        z-index: 1;
+        pointer-events: none;
     }
     .bubble {
-    position: absolute;
-    bottom: -100px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    animation: rise 15s infinite linear;
+        position: absolute;
+        bottom: -100px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: rise 15s infinite linear;
+        will-change: transform;
     }
     .bubble:nth-child(1) { left: 10%; width: 40px; height: 40px; animation-delay: 0s; }
     .bubble:nth-child(2) { left: 20%; width: 20px; height: 20px; animation-delay: 2s; }
@@ -46,188 +53,344 @@
     .bubble:nth-child(5) { left: 70%; width: 50px; height: 50px; animation-delay: 8s; }
     .bubble:nth-child(6) { left: 85%; width: 25px; height: 25px; animation-delay: 10s; }
     @keyframes rise {
-    to {
-    bottom: 100vh;
-    transform: translateX(-100px);
-    }
+        to {
+            bottom: 100vh;
+            transform: translateX(-100px);
+        }
     }
     .container {
-    text-align: center;
-    z-index: 10;
-    position: relative;
-    max-width: 800px;
-    padding: 2rem;
+        text-align: center;
+        z-index: 10;
+        position: relative;
+        max-width: 90%;
+        width: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
     }
     .logo {
-    font-size: 4rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        font-weight: bold;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        line-height: 1.1;
     }
     .tagline {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    font-weight: 300;
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        font-weight: 300;
+        line-height: 1.3;
     }
     .coming-soon {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    animation: pulse 2s infinite;
+        font-size: clamp(1.8rem, 6vw, 3rem);
+        font-weight: bold;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        animation: pulse 2s infinite;
+        line-height: 1.2;
     }
     @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
     }
     .description {
-    font-size: 1.2rem;
-    margin-bottom: 3rem;
-    line-height: 1.6;
-    opacity: 0.9;
+        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+        margin-bottom: 2rem;
+        line-height: 1.6;
+        opacity: 0.9;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
     }
     .features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+        padding: 0 1rem;
     }
     .feature {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1.5rem;
+        border-radius: 15px;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        touch-action: manipulation;
+    }
+    .feature:hover, .feature:active {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
     .feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80px;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
     }
     .feature-icon img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        max-width: 100%;
+        height: auto;
     }
-   
+    .feature h4 {
+        margin: 0 0 0.5rem 0;
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        line-height: 1.3;
+    }
+    .feature p {
+        margin: 0;
+        font-size: clamp(0.8rem, 3vw, 0.95rem);
+        line-height: 1.4;
+        opacity: 0.9;
+    }
     .countdown {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 2rem 0;
-    flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+        padding: 0 1rem;
     }
     .countdown-item {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    min-width: 80px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1rem 0.8rem;
+        border-radius: 15px;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        min-width: 70px;
+        flex: 1;
+        max-width: 90px;
+        transition: transform 0.2s ease;
+        touch-action: manipulation;
+    }
+    .countdown-item:active {
+        transform: scale(0.95);
     }
     .countdown-number {
-    font-size: 2rem;
-    font-weight: bold;
-    display: block;
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        font-weight: bold;
+        display: block;
+        line-height: 1.1;
     }
     .countdown-label {
-    font-size: 0.9rem;
-    opacity: 0.8;
+        font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+        opacity: 0.8;
+        margin-top: 0.2rem;
+        display: block;
     }
+
+    /* Mobile-specific optimizations */
     @media (max-width: 768px) {
-    .logo { font-size: 2.5rem; }
-    .coming-soon { font-size: 2rem; }
-    .tagline { font-size: 1.2rem; }
-    .description { font-size: 1rem; }
-    .countdown { gap: 1rem; }
-    .feature-icon img {
-    width: 60px;
-    height: 60px;
+        body {
+            overflow-y: auto;
+            padding: 1rem 0;
+        }
+        .container {
+            padding: 0.5rem;
+            max-width: 95%;
+        }
+        .features {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding: 0;
+        }
+        .feature {
+            padding: 1.2rem;
+        }
+        .feature-icon {
+            height: 60px;
+        }
+        .feature-icon img {
+            width: 50px;
+            height: 50px;
+        }
+        .countdown {
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+            padding: 0;
+        }
+        .countdown-item {
+            padding: 0.8rem 0.6rem;
+            min-width: 60px;
+            max-width: 80px;
+        }
+        .bubble {
+            animation-duration: 20s;
+        }
     }
-    .feature-icon {
-    height: 70px;
+
+    @media (max-width: 480px) {
+        .container {
+            max-width: 98%;
+            padding: 0.25rem;
+        }
+        .description {
+            margin-bottom: 1.5rem;
+        }
+        .features {
+            margin-top: 1rem;
+        }
+        .feature {
+            padding: 1rem;
+        }
+        .countdown {
+            gap: 0.5rem;
+        }
+        .countdown-item {
+            padding: 0.6rem 0.4rem;
+            min-width: 55px;
+            max-width: 70px;
+        }
     }
+
+    /* Landscape orientation on mobile */
+    @media (max-height: 500px) and (orientation: landscape) {
+        body {
+            padding: 0.5rem 0;
+        }
+        .container {
+            padding: 0.5rem;
+        }
+        .logo {
+            margin-bottom: 0.5rem;
+        }
+        .coming-soon {
+            margin-bottom: 0.5rem;
+        }
+        .description {
+            margin-bottom: 1rem;
+        }
+        .countdown {
+            margin: 1rem 0;
+        }
+        .features {
+            margin-top: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+    }
+
+    /* High DPI displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .feature-icon img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+    }
+
+    /* Reduce motion for accessibility */
+    @media (prefers-reduced-motion: reduce) {
+        .bubble {
+            animation: none;
+        }
+        .coming-soon {
+            animation: none;
+        }
+        .feature {
+            transition: none;
+        }
     }
     </style>
 </head>
 <body>
     <div class="bubbles">
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
     </div>
     <div class="container">
-    <div class="logo">5bar</div>
-    <div class="tagline"></div>
-    <div class="coming-soon">COMING SOON</div>
-    <div class="description">
-    5bar Geschenke präsentiert: Die neue Kollektion für Wasserliebhaber! Entdecke einzigartige Überraschungen, die garantiert für Begeisterung sorgen. 
-    Mit unseren Geschenken schenkst du einen echten "Hecht-Moment"!
-    </div>
-    <div class="countdown">
-    <div class="countdown-item">
-    <span class="countdown-number" id="days">30</span>
-    <span class="countdown-label">Tage</span>
-    </div>
-    <div class="countdown-item">
-    <span class="countdown-number" id="hours">12</span>
-    <span class="countdown-label">Stunden</span>
-    </div>
-    <div class="countdown-item">
-    <span class="countdown-number" id="minutes">45</span>
-    <span class="countdown-label">Minuten</span>
-    </div>
-    <div class="countdown-item">
-    <span class="countdown-number" id="seconds">30</span>
-    <span class="countdown-label">Sekunden</span>
-    </div>
-    </div>
-    <div class="features">
-    <div class="feature">
-    <div class="feature-icon"><img src="hecht.png" alt="Hecht Icon" /></div>
-    <h4>Einzigartige Geschenke</h4>
-    <p>Speziell kuratierte Artikel für Taucher und Naturfreunde</p>
-    </div>
-    <div class="feature">
-    <div class="feature-icon"><img src="logo.png" alt="5bar Logo" /></div>
-    <h4>Wasserdicht</h4>
-    <p>Hochwertige Geschenkideen für Deinen Hecht Moment, nicht unbedingt wasserdicht aber genial!</p>
-    </div>
-    <div class="feature">
-    <div class="feature-icon"><img src="diver.png" alt="Taucher Icon" /></div>
-    <h4>Schneller Versand</h4>
-    <p>schweizweite, schnelle Lieferung zu Dir nach Hause oder an einen Tauchplatz Deiner Wahl</p>
-    </div>
+        <div class="logo">5bar</div>
+        <div class="tagline"></div>
+        <div class="coming-soon">COMING SOON</div>
+        <div class="description">
+            5bar Geschenke präsentiert: Die neue Kollektion für Wasserliebhaber! Entdecke einzigartige Überraschungen, die garantiert für Begeisterung sorgen. 
+            Mit unseren Geschenken schenkst du einen echten "Hecht-Moment"!
+        </div>
+        <div class="countdown">
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">30</span>
+                <span class="countdown-label">Tage</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">12</span>
+                <span class="countdown-label">Stunden</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">45</span>
+                <span class="countdown-label">Minuten</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">30</span>
+                <span class="countdown-label">Sekunden</span>
+            </div>
+        </div>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon"><img src="https://placehold.co/60x60/ffffff/0a4d68?text=🐟" alt="Hecht Icon" /></div>
+                <h4>Einzigartige Geschenke</h4>
+                <p>Speziell kuratierte Artikel für Taucher und Naturfreunde</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="https://placehold.co/60x60/ffffff/0a4d68?text=5bar" alt="5bar Logo" /></div>
+                <h4>Wasserdicht</h4>
+                <p>Hochwertige Geschenkideen für Deinen Hecht Moment, nicht unbedingt wasserdicht aber genial!</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><img src="https://placehold.co/60x60/ffffff/0a4d68?text=🤿" alt="Taucher Icon" /></div>
+                <h4>Schneller Versand</h4>
+                <p>schweizweite, schnelle Lieferung zu Dir nach Hause oder an einen Tauchplatz Deiner Wahl</p>
+            </div>
+        </div>
     </div>
 
     <script>
-    // Simple countdown timer
-    function updateCountdown() {
-    const now = new Date().getTime();
-    const launchDate = new Date('2025-08-01').getTime();
-    const distance = launchDate - now;
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    document.getElementById('days').textContent = days;
-    document.getElementById('hours').textContent = hours;
-    document.getElementById('minutes').textContent = minutes;
-    document.getElementById('seconds').textContent = seconds;
-    if (distance < 0) {
-    document.querySelector('.coming-soon').textContent = 'JETZT VERFÜGBAR!';
-    document.querySelector('.countdown').style.display = 'none';
-    }
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+        // Simple countdown timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const launchDate = new Date('2025-08-01').getTime();
+            const distance = launchDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+            
+            if (distance < 0) {
+                document.querySelector('.coming-soon').textContent = 'JETZT VERFÜGBAR!';
+                document.querySelector('.countdown').style.display = 'none';
+            }
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Touch feedback for mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const touchElements = document.querySelectorAll('.feature, .countdown-item');
+            
+            touchElements.forEach(element => {
+                element.addEventListener('touchstart', function() {
+                    this.style.opacity = '0.8';
+                });
+                
+                element.addEventListener('touchend', function() {
+                    this.style.opacity = '1';
+                });
+            });
+        });
     </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-html_content = '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -264,12 +264,12 @@ html_content = '''<!DOCTYPE html>
     <p>Speziell kuratierte Artikel für Taucher und Wassersport-Fans</p>
     </div>
     <div class="feature">
-    <div class="feature-icon">🌊</div>
+    <div class="feature-icon"><img src="logo.png" alt="5bar Logo" /></div>
     <h4>Wasserdicht</h4>
     <p>Hochwertige Geschenkideen für jedes Abenteuer</p>
     </div>
     <div class="feature">
-    <div class="feature-icon">🚚</div>
+    <div class="feature-icon"><img src="diver.png" alt="Taucher Icon" /></div>
     <h4>Schneller Versand</h4>
     <p>Schweizweite, schnelle Lieferung zu Dir nach Hause oder an einen Tauchplatz Deiner Wahl</p>
     </div>
@@ -312,13 +312,4 @@ html_content = '''<!DOCTYPE html>
     });
     </script>
 </body>
-</html>'''
-
-with open('index.html', 'w', encoding='utf-8') as f:
-    f.write(html_content)
-
-print("index.html wurde nochmals aktualisiert!")
-print("Änderungen:")
-print("- Hecht-Icon ist jetzt 80x80px (doppelt so groß)")
-print("- Cursor probiert mehrere Pfadvarianten für hecht.png")
-print("- Mobile Ansicht angepasst (60x60px)")
+</html>
